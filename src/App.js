@@ -87,7 +87,7 @@ class Account extends Component {
 		const history = transactions.map((event) => {
 			var col = event.amount > 0 ? 'black' : 'red';
 			return (
-				<tr style={{color : col}}>
+				<tr key={event} style={{color : col}}>
 					<td>{event.category}</td>
 					<td>{event.amount}</td>
 					<td>{event.total}</td>
@@ -98,7 +98,8 @@ class Account extends Component {
 		<div>
 		<div className="Manage">
 		<p className="Balance">$ {this.state.value}</p>
-			<table align="center" width="100%">
+			<table width="100%">
+			<tbody>
 				<tr>
 					<td>Amount</td>
 					<td>Category</td>
@@ -123,17 +124,20 @@ class Account extends Component {
 						<button className="ClearData" onClick={() => this.clearData()}>Clear history</button>
 					</td>
 			  </tr>
+			  </tbody>
 		  </table>
 		  </div>
 		  <div className="Transactions">
 				<p>Transactions</p>
 				<table width='100%' id="t01">
+				<tbody>
 					<tr>
 						<th>Category</th>
 						<th>Amount</th>
 						<th>Total</th>
 					</tr>
 					{history}
+					</tbody>
 				</table>
 		  </div>
 		  </div>
