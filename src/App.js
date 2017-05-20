@@ -11,21 +11,8 @@ class Account extends Component {
 			amount: 0,
 			category: "",
 		};
-		try {
-				var obj = {};
-				var settings = JSON.parse(localStorage.getItem('settings'));
-				Object.assign(obj, settings);
-				this.state = settings;
-			} catch(e){
-				this.state = {
-			value: 0.0,
-			transactions: [0],
-			amount: 0,
-			category: "",
-		};
-			} finally {
-				
-			}
+		
+		
 			
 		this.handleChange = this.handleChange.bind(this);
 		this.changeCategory = this.changeCategory.bind(this);
