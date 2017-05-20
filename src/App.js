@@ -88,17 +88,6 @@ class Account extends Component {
 	}
 	
 	render() {
-		const transactions = this.state.transactions;
-		const history = transactions.map((event) => {
-			var col = event.amount > 0 ? 'black' : 'red';
-			return (
-				<tr key={event} style={{color : col}}>
-					<td>{event.category}</td>
-					<td>{event.amount}</td>
-					<td>{event.total}</td>
-				</tr>
-		);});
-
 		return (
 		<div>
 		<div className="Manage">
@@ -141,7 +130,15 @@ class Account extends Component {
 						<th>Amount</th>
 						<th>Total</th>
 					</tr>
-					{history}
+					{this.state.transactions.map((event) => {
+						var col = event.amount > 0 ? 'black' : 'red';
+						return (
+							<tr key={event} style={{color : col}}>
+								<td>{event.category}</td>
+								<td>{event.amount}</td>
+								<td>{event.total}</td>
+							</tr>
+					);})}
 					</tbody>
 				</table>
 		  </div>
