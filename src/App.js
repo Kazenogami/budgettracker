@@ -7,7 +7,7 @@ class Account extends Component {
 		super();
 		this.state = {
 			value: 0.0,
-			transactions: [],
+			transactions: [0],
 			amount: 0,
 			category: "",
 		};
@@ -17,7 +17,12 @@ class Account extends Component {
 				Object.assign(obj, settings);
 				this.state = settings;
 			} catch(e){
-				
+				this.state = {
+			value: 0.0,
+			transactions: [0],
+			amount: 0,
+			category: "",
+		};
 			} finally {
 				
 			}
